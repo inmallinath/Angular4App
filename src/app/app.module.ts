@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-
+//Services
 import { GeomappingService } from './geomapping.service'
+import { DataService } from './data.service'
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { GeomappingService } from './geomapping.service'
     BrowserModule
   ],
   providers: [
-    GeomappingService
+    GeomappingService,
+    DataService
   ],
   bootstrap: [AppComponent]
 })
