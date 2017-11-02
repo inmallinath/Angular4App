@@ -1,6 +1,7 @@
 import 'hammerjs';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 //Services
@@ -12,6 +13,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatIconModule, MatInputModule, MatSelectModule, MatToolbarModule} from '@angular/material';
 import { ExpenseListComponent } from './expense-list/expense-list.component';
 import { ExpenseDetailComponent } from './expense-detail/expense-detail.component';
+
+const routes: Routes = [
+  { path: '', component: ExpenseListComponent },
+  { path: 'expense', component: ExpenseDetailComponent },
+  { path: 'expense/:id', component: ExpenseDetailComponent},
+];
 
 @NgModule({
   declarations: [
@@ -27,7 +34,8 @@ import { ExpenseDetailComponent } from './expense-detail/expense-detail.componen
     MatIconModule, 
     MatInputModule, 
     MatSelectModule, 
-    MatToolbarModule
+    MatToolbarModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     GeomappingService,
