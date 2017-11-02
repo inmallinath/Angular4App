@@ -10,10 +10,14 @@ import { DataService } from './data.service'
 //Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatIconModule, MatInputModule, MatSelectModule, MatToolbarModule} from '@angular/material';
+import { ExpenseListComponent } from './expense-list/expense-list.component';
+import { ExpenseDetailComponent } from './expense-detail/expense-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ExpenseListComponent,
+    ExpenseDetailComponent
   ],
   imports: [
     BrowserModule,
