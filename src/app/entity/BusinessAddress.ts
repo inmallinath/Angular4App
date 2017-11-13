@@ -1,4 +1,4 @@
-class BusinessAddress {
+export class BusinessAddress {
     street: string;
     city: string;
     latitude: number;

@@ -1,4 +1,6 @@
-class Expense {
+import { BusinessAddress } from "./BusinessAddress";
+
+export class Expense {
     dateExpensed: Date;
     type: string;
     business: string;

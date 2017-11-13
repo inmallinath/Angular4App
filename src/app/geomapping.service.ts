@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BusinessAddress } from './entity/BusinessAddress';
 
 @Injectable()
 export class GeomappingService {
