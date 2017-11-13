@@ -17,16 +17,18 @@ export class GeomappingService {
     );
   }
 
-  createLink(address : BusinessAddress){
-    let query = "";
+  // tslint:disable-next-line:one-line
+  createLink(address: BusinessAddress){
+    let query = '';
     if (address.latitude) {
-      query = `${address.latitude},${address.longitude}`; 
+      query = `${address.latitude},${address.longitude}`;
     } else {
       query = `${address.street},${address.city}`;
     }
 
-    if(/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
       return `https://maps.apple.com/q=${query}`;
+    // tslint:disable-next-line:one-line
     }else{
       return `https://maps.google.com/q=${query}`;
     }

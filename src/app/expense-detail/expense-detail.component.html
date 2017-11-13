@@ -1,3 +1,58 @@
-<p>
-  expense-detail works!
-</p>
+<form>
+    <mat-card>
+        <mat-card-title>Expense Information</mat-card-title>
+        <mat-form-field>
+            <input matInput placeholder="Name of the Business" name="business" [(ngModel)]="expense.business">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder = "Incurred Expense" 
+                    name="expense" [(ngModel)]="expense.incurredExpense">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" 
+                    placeholder="Expense Date"
+                    name="date"
+                    [(ngModel)]="expense.dateExpensed">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </mat-card>
+    <mat-card>
+        <mat-card-title>Where did you spend?</mat-card-title>
+        <mat-form-field>
+            <input matInput placeholder="Business Street" 
+                    name="street" [(ngModel)]="expense.address.street">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Business City" 
+                    name="city" [(ngModel)]="expense.address.city">
+        </mat-form-field>
+    </mat-card>
+    <mat-card>
+        <mat-card-title>Expense Details</mat-card-title>
+        <mat-form-field>
+            <mat-select placeholder="Expense Type"
+                name="type" [(ngModel)] = "expense.type">
+                <mat-option *ngFor="let type of expenseTypes" [value]="type">{{ type }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+                <mat-select placeholder="Mode of Payment"
+                    name="type" [(ngModel)] = "expense.mode">
+                    <mat-option *ngFor="let mode of expenseModes" [value]="mode">{{ mode }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        <mat-form-field>
+            <textarea matInput placeholder="Description" name="notes" [(ngModel)]="expense.notes" matTextareaAutosize matAutosizeMinRows="2"
+                matAutosizeMaxRows="5">
+            </textarea>
+        </mat-form-field>
+        <mat-card-actions>
+                <button mat-raised-button color="accent" (click)="cancel()">Cancel</button>
+                <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+            </mat-card-actions>
+    </mat-card>
+    <mat-card>
+        {{ expense | json }}
+    </mat-card>
+</form>

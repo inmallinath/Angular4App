@@ -1,21 +1,14 @@
-import { BusinessAddress } from "./BusinessAddress";
+import { BusinessAddress } from './BusinessAddress';
 
 export class Expense {
-    dateExpensed: Date;
-    type: string;
-    business: string;
-    expense: number;
-    notes: string;
-    mode: string;
-    address: BusinessAddress;
+    dateExpensed: Date = null;
+    type = '';
+    mode = '';
 
-    constructor(DateExpensed: Date, Type: string, Business: string, Expense: number, Notes: string, Mode: string, Address: BusinessAddress){
-        this.dateExpensed = DateExpensed,
-        this.type = Type,
-        this.business = Business,
-        this.expense = Expense,
-        this.notes = Notes,
-        this.mode = Mode,
-        this.address = Address
+    constructor(public business: string = '',
+                public incurredExpense: number = null,
+                public notes: string = '',
+                public address: BusinessAddress = null) {
+        this.address = new BusinessAddress();
     }
 }
